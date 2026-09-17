@@ -1,0 +1,118 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fullscreen background */
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background-image: url('https://www.leblond.in/blog/images/post/gov-ag-edu-caar-main-1024x399.jpg');
+
+}
+
+.intro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(135deg,  #E5EDF1,  #E5EDF1);
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.intro-content {
+    transform: translateY(50px);
+    animation: slideIn 1s ease-out forwards;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards, zoomIn 2s ease-out forwards;
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right,  #14bafc, #14bafc);
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    background-color: #0996dd;
+    color: rgb(13, 14, 13);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInButton 2s ease-in-out 1.5s forwards, bounce 1.5s infinite;
+}
+
+button:hover {
+    background-color: #17c6fb;
+}
+
+/* Animations */
+@keyframes slideIn {
+    0% { transform: translateY(100px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInButton {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+.left, .right {
+    float: left;
+    width: 20%; /* The width is 20%, by default */
+  }
+  
+  .main {
+    float: left;
+    width: 60%; /* The width is 60%, by default */
+  }
+  
+  /* Use a media query to add a breakpoint at 800px: */
+  @media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }

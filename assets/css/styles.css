@@ -1,0 +1,97 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(150, 194, 219, 0.9), rgba(229, 237, 241, 0.7));
+}
+
+#login-container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(150, 194, 219, 0.9);
+    box-shadow:beige 0 1px 0 rgba(150, 194, 219, 0);
+}
+
+.login-box {
+    background: rgba(229, 237, 241, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgb(78, 215, 252);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    color: #000000;
+    padding-left: 10px;
+}
+
+.login-box h1 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: #000000;
+}
+
+.login-box input, .login-box select {
+    display: block;
+    width: 100%;
+    margin-bottom: 18px;
+    padding: 14px;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    color: #607D8B;
+    transition: all 0.3s ease;
+}
+
+.login-box input:focus, .login-box select:focus {
+    border-color: #96C2DB;
+    box-shadow: 0 0 8px rgba(150, 194, 219, 0.8);
+}
+
+.login-box button {
+    padding: 14px 25px;
+    font-size: 1.1rem;
+    border: none;
+    background-color: #96C2DB;
+    color: #FFFFFF;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #607D8B;
+    color: #FFFFFF;
+    box-shadow: 0 0 8px rgba(150, 194, 219, 0.8);
+}
+
+.error-message {
+    color: red;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+#role {
+    padding: 14px;
+    width: 480px;
+
+}
+.left, .right {
+    float: left;
+    width: 20%; /* The width is 20%, by default */
+  }
+  
+  .main {
+    float: left;
+    width: 60%; /* The width is 60%, by default */
+  }
+  
+  /* Use a media query to add a breakpoint at 800px: */
+  @media screen and (max-width: 800px) {
+    .left, .main, .right {
+      width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+  }

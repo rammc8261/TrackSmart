@@ -1,0 +1,22 @@
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+includes/db.local.php
+
+# Dependencies installed locally by Composer
+/vendor/
+
+# Local database exports and application data
+/database/*.sql
+/database/*.sql.gz
+/uploads/
+
+# Logs, caches, and editor files
+*.log
+*.cache
+.phpunit.result.cache
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
