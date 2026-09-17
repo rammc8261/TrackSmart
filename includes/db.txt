@@ -1,0 +1,70 @@
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY AUTO_INCREMENT,
+    department_name VARCHAR(255) NOT NULL,
+    department_sort_code VARCHAR(100) NOT NULL,
+    status VARCHAR(50) NOT NULL
+    )
+
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    roll_no VARCHAR(50) NOT NULL,
+    enrollment_no VARCHAR(50) NOT NULL,
+    student_name VARCHAR(100) NOT NULL,
+    year_of_study VARCHAR(20) NOT NULL,
+    department_short_name VARCHAR(50) NOT NULL,
+    student_contact VARCHAR(15) NOT NULL,
+    parent_contact VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    address TEXT NULL
+);
+
+ALTER TABLE students MODIFY email VARCHAR(255) NULL;
+ALTER TABLE `students` DROP INDEX `email`;
+
+CREATE TABLE student_attendance (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    department VARCHAR(255) NOT NULL,
+    year_of_study VARCHAR(50) NOT NULL,
+    faculty_name VARCHAR(255) NOT NULL,
+    lecture_time_slot VARCHAR(255) NOT NULL,
+    subject_name VARCHAR(255) NOT NULL,
+    attendance_status ENUM('Present', 'Absent') NOT NULL DEFAULT 'Present',
+    attendance_date DATE NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+
+Active - #3498db
+sidebar Background - #96C2DB
+Body - #E5EDF1
+
+
+SELECT COUNT(*) FROM student_attendance 
+WHERE department = 'AN' 
+AND year_of_study = '1' 
+AND lecture_time_slot = '10:05 11:05' 
+AND attendance_status = 'Present' 
+AND attendance_date = '2025-03-03';
+
+CREATE TABLE class_teachers (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    departmentId INT NOT NULL,
+    year_of_study VARCHAR(10) NOT NULL,
+    faculty_id INT NOT NULL,
+    assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (departmentId) REFERENCES departments(department_id) ON DELETE CASCADE,
+    FOREIGN KEY (faculty_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE TABLE assigned_hods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    departmentId INT NOT NULL,
+    hod_id INT NOT NULL,
+    assigned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (departmentId) REFERENCES departments(department_id) ON DELETE CASCADE,
+    FOREIGN KEY (hod_id) REFERENCES users(id) ON DELETE CASCADE
+);
